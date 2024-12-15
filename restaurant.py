@@ -21,23 +21,27 @@ class Restaurant:
     def add_customer(self, customer):
         customer.id = len(self.customers) + 1
         self.customers.append(customer)
+        print(f"Customer {customer.name} Added")
+
+    def remove_customer(self, customer_id):
+        flag = False
+        for c in self.customers:
+            if c.id == customer_id:
+                self.customers.remove(c)
+                flag = True
+                break
+        if flag:
+            print("Customer removed")
+        else:
+            print("Customer not found")
 
     def show_customers(self):
         print("-----------Customers List--------------")
         for customer in self.customers:
             print(f"Id: {customer.id}, Name: {customer.name}, Email: {customer.email}")
-        return ""        
 
     def show_menu(self):
         print("-----------Restaurant Menu--------------")
         for item in self.menu:
             print(f"Id: {item["id"]}, Name: {item["item_name"]}, Price: {item["price"]}")
-        return ""
 
-res = Restaurant()
-res.add_item("pizza", 23)
-res.add_item("burger", 33)
-res.add_item("pasta", 43)
-res.show_menu()
-res.remove_item("PizzA")
-res.show_menu()

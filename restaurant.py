@@ -7,10 +7,10 @@ class Restaurant:
         item = {"id": len(self.menu) + 1,"item_name": item_name, "price": price}
         self.menu.append(item)
 
-    def remove_item(self, item_name):
+    def remove_item(self, id):
         flag = False
         for item in self.menu:
-            if item["item_name"].lower() == item_name.lower():
+            if item["id"] == id:
                 self.menu.remove(item)
                 flag = True
         if flag:

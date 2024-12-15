@@ -1,10 +1,10 @@
 class Restaurant:
     def __init__(self):
-        self.menu = []  # [{item_name, price}, {}]
-        self.customers = [] # 
+        self.menu = []  # [{id, item_name, price}, {}]
+        self.customers = [] # [{id, name, email, address...}]
 
     def add_item(self, item_name, price):
-        item = {"item_name": item_name, "price": price}
+        item = {"id": len(self.menu) + 1,"item_name": item_name, "price": price}
         self.menu.append(item)
 
     def remove_item(self, item_name):
@@ -18,11 +18,20 @@ class Restaurant:
         else:
             print("Item not found")
 
+    def add_customer(self, customer):
+        customer.id = len(self.customers) + 1
+        self.customers.append(customer)
+
+    def show_customers(self):
+        print("-----------Customers List--------------")
+        for customer in self.customers:
+            print(f"Id: {customer.id}, Name: {customer.name}, Email: {customer.email}")
+        return ""        
 
     def show_menu(self):
         print("-----------Restaurant Menu--------------")
         for item in self.menu:
-            print(f"Name: {item["item_name"]}, Price: {item["price"]}")
+            print(f"Id: {item["id"]}, Name: {item["item_name"]}, Price: {item["price"]}")
         return ""
 
 res = Restaurant()

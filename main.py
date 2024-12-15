@@ -53,21 +53,23 @@ while True:
                 elif admin_op == 3:
                     restaurant.show_customers()
                 elif admin_op == 4:
-                    print("------------Manage Menu-----------")
-                    print("1. Add items in Menu")
-                    print("2. Remove items in Menu")
-                    print("3. Show all items")
-                    print("3. Exit")
-                    menu_op = int(input("Select an option: "))
                     while True:
+                        print("------------Manage Menu-----------")
+                        print("1. Add items in Menu")
+                        print("2. Remove items in Menu")
+                        print("3. Show all items")
+                        print("4. Exit")
+                        menu_op = int(input("Select an option: "))
                         if menu_op == 1:
                             name = input("Enter item name: ")
                             price = input("Enter price: ")
                             restaurant.add_item(name, price)
                         elif menu_op == 2:
-                            id = int(input("Enter item id: "))
+                            id = input("Enter item name: ")
                             restaurant.remove_item(id)
                         elif menu_op == 3:
+                            restaurant.show_menu()
+                        elif menu_op == 4:
                             break
                 elif admin_op == 5:
                     break

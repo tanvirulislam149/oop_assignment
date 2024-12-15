@@ -1,16 +1,17 @@
 class Restaurant:
     def __init__(self):
-        self.menu = []  # [{id, item_name, price}, {}]
-        self.customers = [] # [{id, name, email, address...}]
+        self.menu = []  # [{item_name, price}, {}]
+        self.customers = [] # [obj, obj]
 
     def add_item(self, item_name, price):
-        item = {"id": len(self.menu) + 1,"item_name": item_name, "price": price}
+        item = {"item_name": item_name, "price": price}
         self.menu.append(item)
+        print("Item added")
 
-    def remove_item(self, id):
+    def remove_item(self, item_name):
         flag = False
         for item in self.menu:
-            if item["id"] == id:
+            if item["item_name"].lower() == item_name.lower():
                 self.menu.remove(item)
                 flag = True
         if flag:
@@ -19,14 +20,13 @@ class Restaurant:
             print("Item not found")
 
     def add_customer(self, customer):
-        customer.id = len(self.customers) + 1
         self.customers.append(customer)
         print(f"Customer {customer.name} Added")
 
-    def remove_customer(self, customer_id):
+    def remove_customer(self, customer_name):
         flag = False
         for c in self.customers:
-            if c.id == customer_id:
+            if c.name == customer_name:
                 self.customers.remove(c)
                 flag = True
                 break
@@ -38,10 +38,10 @@ class Restaurant:
     def show_customers(self):
         print("-----------Customers List--------------")
         for customer in self.customers:
-            print(f"Id: {customer.id}, Name: {customer.name}, Email: {customer.email}")
+            print(f"Name: {customer.name}, Email: {customer.email}")
 
     def show_menu(self):
         print("-----------Restaurant Menu--------------")
         for item in self.menu:
-            print(f"Id: {item["id"]}, Name: {item["item_name"]}, Price: {item["price"]}")
+            print(f"Name: {item["item_name"]}, Price: {item["price"]}")
 

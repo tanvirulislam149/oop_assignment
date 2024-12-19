@@ -43,7 +43,7 @@ while True:
                         menu_op = int(input("Select an option: "))
                         if menu_op == 1:
                             name = input("Enter item name: ")
-                            price = input("Enter price: ")
+                            price = int(input("Enter price: "))
                             admin.add_item(restaurant, name, price)
                         elif menu_op == 2:
                             name = input("Enter item name: ")
@@ -85,7 +85,14 @@ while True:
                 elif customer_op == 2:
                     name = input("Enter item name: ")
                     quantity = int(input("Enter quantity: "))
-                    customer.place_order(restaurant, item_name, quantity)
+                    customer.place_order(restaurant, name, quantity)
+                elif customer_op == 3:
+                    customer.check_balance()
+                elif customer_op == 4:
+                    money = int(input("Enter amount: "))
+                    customer.add_balance(money)
+                elif customer_op == 5:
+                    customer.view_orders()
                 elif customer_op == 6:
                     break
         else:

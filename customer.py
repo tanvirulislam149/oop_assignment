@@ -5,7 +5,7 @@ class Customer:
         self.name = name
         self.email = email
         self.address = address
-        self.__orders = []
+        self.__orders = [] # array of dictionary
         self.__balance = 0
 
     @property
@@ -43,12 +43,13 @@ class Customer:
         else:
             print("Item not found")
 
-res = Restaurant()
-res.menu = [{"item_name": "pizza", "price": 34}, {"item_name": "burger", "price": 334}, {"item_name": "alu", "price": 4}]
+    def check_balance(self):
+        print(f"Your balance is {self.balance}")
 
-s = Customer("s", "sasdf", "ctg")
-s.place_order(res, "Pizza", 10)
-s.place_order(res, "alu", 100)
+    def add_balance(self, value):
+        self.balance = self.balance + value
+        print(f"Your current balance is {self.balance}")
 
-print(s.orders)
-print(s.balance)
+    def view_orders(self):
+        for o in self.orders:
+            print(f"Item name: {o['item_name']}, Total price: {o["total_price"]}, Quantity: {o["quantity"]}")

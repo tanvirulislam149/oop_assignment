@@ -61,7 +61,35 @@ while True:
         else:
             print("Wrong Admin name")
     elif n == 2:
-        pass
+        name = input("Enter customer name: ")
+        flag = False
+        customer = None
+        for c in restaurant.customers:
+            if c.name == name:
+                flag = True
+                customer = c
+                break
+        if flag:
+            print(f"Welcome {name}")
+            while True:
+                print(f"---------{name}'s Menu----------")
+                print("1. View restaurant menu")
+                print("2. Place an order")
+                print("3. Check balance")
+                print("4. Add balance")
+                print("5. View your orders")
+                print("6. Exit")
+                customer_op = int(input("Enter option: "))
+                if customer_op == 1:
+                    customer.show_menu(restaurant)
+                elif customer_op == 2:
+                    name = input("Enter item name: ")
+                    quantity = int(input("Enter quantity: "))
+                    customer.place_order(restaurant, item_name, quantity)
+                elif customer_op == 6:
+                    break
+        else:
+            print("User not found")
     elif n == 3:
         print("Closing the system")
         break

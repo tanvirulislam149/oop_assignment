@@ -48,8 +48,8 @@ while True:
                     customer = Customer(name, email, address)
                     restaurant.add_customer(customer)
                 elif admin_op == 2:
-                    id = int(input("Enter Customer id: "))
-                    restaurant.remove_customer(id)
+                    customer_name = input("Enter Customer name: ")
+                    restaurant.remove_customer(customer_name)
                 elif admin_op == 3:
                     restaurant.show_customers()
                 elif admin_op == 4:

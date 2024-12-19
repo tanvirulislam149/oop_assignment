@@ -1,5 +1,6 @@
 from customer import Customer
 from restaurant import Restaurant
+from admin import Admin
 
 
 # res.add_item("pizza", 23)
@@ -32,7 +33,8 @@ while True:
     n = int(input("Select an option: "))
     if n == 1:
         admin_name = input("Enter Admin Name: ")
-        if admin_name == "Admin":
+        admin = Admin(admin_name)
+        if admin.name == "Admin":
             while True:
                 print("-------Admin Menu-----------")
                 print("1. Create Customer Account")
@@ -46,12 +48,12 @@ while True:
                     email = input("Enter email: ")
                     address = input("Enter address: ")
                     customer = Customer(name, email, address)
-                    restaurant.add_customer(customer)
+                    admin.add_customer(restaurant, customer)
                 elif admin_op == 2:
                     customer_name = input("Enter Customer name: ")
-                    restaurant.remove_customer(customer_name)
+                    admin.remove_customer(restaurant, customer_name)
                 elif admin_op == 3:
-                    restaurant.show_customers()
+                    admin.show_customers(restaurant)
                 elif admin_op == 4:
                     while True:
                         print("------------Manage Menu-----------")
@@ -63,17 +65,20 @@ while True:
                         if menu_op == 1:
                             name = input("Enter item name: ")
                             price = input("Enter price: ")
-                            restaurant.add_item(name, price)
+                            admin.add_item(restaurant, name, price)
                         elif menu_op == 2:
                             id = input("Enter item name: ")
-                            restaurant.remove_item(id)
+                            admin.remove_item(restaurant, id)
                         elif menu_op == 3:
-                            restaurant.show_menu()
+                            admin.show_menu(restaurant)
                         elif menu_op == 4:
                             break
                 elif admin_op == 5:
                     break
+        else:
+            print("Wrong Admin name")
     elif n == 2:
         pass
     elif n == 3:
+        print("Closing the system")
         break

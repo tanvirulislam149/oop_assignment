@@ -1,28 +1,6 @@
 from customer import Customer
 from restaurant import Restaurant
-from admin import Admin
-
-
-# res.add_item("pizza", 23)
-# res.add_item("burger", 33)
-# res.add_item("pasta", 43)
-# res.show_menu()
-# res.remove_item("PizzA")
-# res.show_menu()
-
-
-# sakib = Customer("sakib", "sakib@gmail.com", "ctg")
-# rakib = Customer("rakib", "rakib@gmail.com", "Dhaka")
-# akib = Customer("akib", "akib@gmail.com", "Cumilla")
-
-# res.add_customer(sakib)
-# res.add_customer(rakib)
-# res.add_customer(akib)
-
-# res.show_customers()
-# res.remove_customer(2)
-# res.show_customers()
-
+from admin import Admin 
 
 restaurant = Restaurant()
 while True:
@@ -60,18 +38,23 @@ while True:
                         print("1. Add items in Menu")
                         print("2. Remove items in Menu")
                         print("3. Show all items")
-                        print("4. Exit")
+                        print("4. Update price of an item")
+                        print("5. Exit")
                         menu_op = int(input("Select an option: "))
                         if menu_op == 1:
                             name = input("Enter item name: ")
                             price = input("Enter price: ")
                             admin.add_item(restaurant, name, price)
                         elif menu_op == 2:
-                            id = input("Enter item name: ")
-                            admin.remove_item(restaurant, id)
+                            name = input("Enter item name: ")
+                            admin.remove_item(restaurant, name)
                         elif menu_op == 3:
                             admin.show_menu(restaurant)
                         elif menu_op == 4:
+                            item_name = input("Enter item name: ")
+                            price = int(input("Enter price: "))
+                            admin.update_price(restaurant, item_name, price)
+                        elif menu_op == 5:
                             break
                 elif admin_op == 5:
                     break

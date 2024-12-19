@@ -23,7 +23,7 @@ class Admin:
     def update_price(self, restaurant, item_name, price):
         flag = False
         for item in restaurant.menu:
-            if item["item_name"] == item_name:
+            if item["item_name"].lower() == item_name.lower():
                 item["price"] = price
                 flag = True
                 break

@@ -1,3 +1,5 @@
+# file name --> customer.py
+
 from restaurant import Restaurant
 
 class Customer:

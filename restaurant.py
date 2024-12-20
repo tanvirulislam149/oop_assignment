@@ -1,3 +1,5 @@
+# file name --> restaurant.py
+
 class Restaurant:
     def __init__(self):
         self.menu = []  # [{item_name, price}, {}]

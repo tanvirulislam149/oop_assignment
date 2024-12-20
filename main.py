@@ -19,7 +19,8 @@ while True:
                 print("2. Remove Customer Account")
                 print("3. View all Customer")
                 print("4. Manage Restaurant Menu")
-                print("5. Exit")
+                print("5. Check customer details")
+                print("6. Exit")
                 admin_op = int(input("Select an option: "))
                 if admin_op == 1:
                     name = input("Enter name: ")
@@ -57,6 +58,9 @@ while True:
                         elif menu_op == 5:
                             break
                 elif admin_op == 5:
+                    customer_name = input("Enter customer name: ")
+                    admin.customer_details(restaurant, customer_name)
+                elif admin_op == 6:
                     break
         else:
             print("Wrong Admin name")
@@ -70,9 +74,9 @@ while True:
                 customer = c
                 break
         if flag:
-            print(f"Welcome {name}")
+            print(f"Welcome {customer.name}")
             while True:
-                print(f"---------{name}'s Menu----------")
+                print(f"---------{customer.name}'s Menu----------")
                 print("1. View restaurant menu")
                 print("2. Place an order")
                 print("3. Check balance")

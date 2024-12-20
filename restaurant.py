@@ -45,3 +45,22 @@ class Restaurant:
         for item in self.menu:
             print(f"Name: {item["item_name"]}, Price: {item["price"]}")
 
+    def customer_details(self, customer_name):
+        flag = False
+        customer = None
+        for c in self.customers:
+            if c.name == customer_name:
+                flag = True
+                customer = c
+                break
+
+        if flag:
+            print(f"-----------{customer.name}'s Details--------------")
+            print("Name: ", customer.name)
+            print("Email: ", customer.email)
+            print("Address: ", customer.address)
+            for o in customer.orders:
+                print(f"Item Name: {o['item_name']}, Total price: {o["total_price"]}, Quantity: {o['quantity']}")
+            print("Balance: ", customer.balance)
+        else:
+            print("Customer not found")

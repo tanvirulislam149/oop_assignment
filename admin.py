@@ -32,4 +32,7 @@ class Admin:
         else:
             print("Item not found")
 
+    def customer_details(self, restaurant, customer_name):
+        restaurant.customer_details(customer_name)
+
     
